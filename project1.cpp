@@ -63,7 +63,7 @@ void myInit()
   // Projection
   glMatrixMode( GL_PROJECTION );
   glLoadIdentity();
-  glOrtho( -2.0, 2.0, -2.0, 2.0, -2.0, 2.0 );
+  glOrtho( 0.0, 1.0, 0.0, 1.0, -2.0, 2.0 );
 }
 
 // Display callback

@@ -1,6 +1,8 @@
 #ifndef CHECKERS_H_
 #define CHECKERS_H_
 
+#include <iostream>
+using namespace std;
 #include "square.h"
 #include <math.h>
 #include <stdlib.h>

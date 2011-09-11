@@ -7,6 +7,11 @@ Checkers::Checkers(void)
 	this->squares = 0;
 	this->numSquares = 0;
 	this->colorMode = 0;	// Initialize to black and white
+	cout<<"Initialize Checkers:"<<endl;
+	cout<<"this->numHorizontal= "<<this->numHorizontal<<endl;
+	cout<<"this->squares= "<<this->squares<<endl;
+	cout<<"this->numSquares= "<<this->numSquares<<endl;
+	cout<<"this->colorMode= "<<this->colorMode<<endl;
 	this->createSquares();
 	return;
 }
@@ -68,22 +73,34 @@ void Checkers::createSquares(void)
 	newNumSquares = this->numHorizontal * numVertical;
 	h = this->windowParams[3] / numVertical;
 
+	cout<<"Creating Squares:"<<endl;
+	cout<<"Width of squares= "<<w<<endl;
+	cout<<"Number of vertical squares= "<<numVertical<<endl;
+	cout<<"Height of squares= "<<h<<endl;
+	cout<<"Total Number of Squares= "<<newNumSquares<<endl;
+
 	if(this->squares != 0)
 	{
+		cout<<"Allocated once before..."<<endl;
 		this->deleteSquares();
 	}
 	this->numSquares = newNumSquares;
 	this->squares = (Square **)malloc(this->numSquares * sizeof(Square *));
-
+	cout<<"this->squares allocated at "<<this->squares<<endl;
 	count = 0;
 	for(int y = 0; y < numVertical; y++)
 	{
 		for(int x = 0; x < this->numHorizontal; x++)
 		{
-
-			this->squares[count] = new Square(x, y, w, h);
+			// Store coordinates and sizes as normalized values in order to fit
+			// inside the projection that was initially setup.
+			this->squares[count] = new Square(x * w / this->windowParams[2],
+																				y * h / this->windowParams[3],
+																				w / this->windowParams[2],
+																				h / this->windowParams[3]);
 			this->setColor(count);
 			this->squares[count]->draw();
+//			cout<<"Square["<<count<<"] = "<<"("<<x*w<<", "<<y*h<<", "<<w<<", "<<h<<")"<<endl;
 			count++;
 		}
 	}
@@ -92,6 +109,7 @@ void Checkers::createSquares(void)
 
 void Checkers::deleteSquares(void)
 {
+	cout<<"Deleting all squares..."<<endl;
 	for(int i = 0; i < this->numSquares; i++)
 	{
 		delete this->squares[i];
@@ -111,10 +129,11 @@ void Checkers::setColor(int index)
 //	}
 //	else
 //	{
-		r = rand();
-		g = rand();
-		b = rand();
+		r = (rand() % 256) / 256.0;
+		g = (rand() % 256) / 256.0;
+		b = (rand() % 256) / 256.0;
 //	}
+	cout<<"Storing color of: ("<<r<<", "<<g<<", "<<b<<")"<<endl;
 	this->squares[index]->setColor(r, g, b);
 	return;
 }
