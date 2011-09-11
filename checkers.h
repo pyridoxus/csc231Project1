@@ -22,8 +22,7 @@ class Checkers
 		int numHorizontal;		// Number of horizontal squares
 		int windowParams[4];	// Used for getting H and W of viewport
 		int colorMode;	// 0 = black and white, -1 = random colors
-		Square *squares;	// Pointer to array of squares
+		Square **squares;	// Pointer to array of pointers to squares
 };
 
-Checkers checker;
 #endif /* CHECKERS_H_ */

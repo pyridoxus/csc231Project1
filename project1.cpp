@@ -21,10 +21,6 @@ Provide a GLUT pop-up menu and keyboard callbacks to perform the following:
 
 **********************************************************************/
 
-//float params[4];     // params[2] and params[3] store the width and height of viewport
-//
-//glGetIntegerv( GL_VIEWPORT, params );
-
 #include "project1.h"
 
 int main( int argc, char *argv[] )
@@ -92,13 +88,13 @@ void keyboard( unsigned char key, int x, int y )
 			exit(1);
 			break;
 		case '+':			// increase number of horizontal squares
-			increase();
+			checkers.increase();
 			break;
 		case '-':			// decrease number of horizontal squares
-			decrease();
+			checkers.decrease();
 			break;
 		case 'c':			// toggle between black/white and random colors
-			toggleColors();
+			checkers.toggleColors();
 			break;
     }
 
@@ -112,13 +108,13 @@ void menu( int value )
   switch( value )
     {
 		case 1:			// increase number of horizontal squares
-			increase();
+			checkers.increase();
       break;
 		case 2:			// decrease number of horizontal squares
-			decrease();
+			checkers.decrease();
       break;
 		case 3:			// toggle between black/white and random colors
-			toggleColors();
+			checkers.toggleColors();
       break;
 		case 4:			// exit program
       exit(1);
@@ -127,19 +123,4 @@ void menu( int value )
 
 	// Redraw the scene
   glutPostRedisplay();
-}
-
-void increase(void)
-{
-	return;
-}
-
-void decrease(void)
-{
-	return;
-}
-
-void toggleColors(void)
-{
-	return;
 }

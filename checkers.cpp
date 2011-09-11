@@ -59,7 +59,6 @@ void Checkers::createSquares(void)
 	double f_numV, i_numV, frac_numV;
 	int newNumSquares, numVertical;
 	int count;
-	Square *temp;
 	glGetIntegerv( GL_VIEWPORT, this->windowParams );
 	w = this->windowParams[2] / this->numHorizontal;
 	f_numV = this->windowParams[3] / w;
@@ -74,17 +73,17 @@ void Checkers::createSquares(void)
 		this->deleteSquares();
 	}
 	this->numSquares = newNumSquares;
-	this->squares = (Square *)malloc(this->numSquares * sizeof(Square *));
+	this->squares = (Square **)malloc(this->numSquares * sizeof(Square *));
 
 	count = 0;
 	for(int y = 0; y < numVertical; y++)
 	{
 		for(int x = 0; x < this->numHorizontal; x++)
 		{
-			temp = new Square(x, y, w, h);
-			this->squares[count] = &temp;
+
+			this->squares[count] = new Square(x, y, w, h);
 			this->setColor(count);
-			this->squares[count].draw();
+			this->squares[count]->draw();
 			count++;
 		}
 	}
@@ -116,6 +115,6 @@ void Checkers::setColor(int index)
 		g = rand();
 		b = rand();
 //	}
-	this->squares[index].setColor(r, g, b);
+	this->squares[index]->setColor(r, g, b);
 	return;
 }

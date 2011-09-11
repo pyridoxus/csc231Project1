@@ -11,10 +11,6 @@ void myInit();
 void myDraw();
 void keyboard( unsigned char, int, int );
 void menu( int );
-void increase(void);
-void decrease(void);
-void toggleColors(void);
-
 
 Checkers checkers;
 #endif
