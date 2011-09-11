@@ -21,19 +21,11 @@ Provide a GLUT pop-up menu and keyboard callbacks to perform the following:
 
 **********************************************************************/
 
-#include <iostream>
-using namespace std;
-#include <math.h>
-#include <stdlib.h> // for exit() in Linux
-#include <GL/glut.h>
+//float params[4];     // params[2] and params[3] store the width and height of viewport
+//
+//glGetIntegerv( GL_VIEWPORT, params );
 
-void myInit();
-void myDraw();
-void keyboard( unsigned char, int, int );
-void menu( int );
-void increase(void);
-void decrease(void);
-void toggleColors(void);
+#include "project1.h"
 
 int main( int argc, char *argv[] )
 {
