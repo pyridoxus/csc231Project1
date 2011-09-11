@@ -76,16 +76,7 @@ void myDraw()
   // Clear the screen
   glClear(GL_COLOR_BUFFER_BIT );
 
-  // Example code to draw 4 white points
-  // Draw your points here
-  glColor3f( 1.0, 1.0, 1.0 );
-  glBegin( GL_POINTS );
-  glVertex3f( -0.25, -0.25, 0.0 );
-  glVertex3f( 0.25, -0.25, 0.0 );
-  glVertex3f( 0.25, 0.25, 0.0 );
-  glVertex3f( -0.25, 0.25, 0.0 );
-
-  glEnd();
+  checkers.draw();
 
   // Execute draw commands
   glFlush();

@@ -3,7 +3,6 @@
 
 #include <iostream>
 using namespace std;
-#include <math.h>
 #include <stdlib.h> // for exit() in Linux
 #include <GL/glut.h>
 #include "checkers.h"
