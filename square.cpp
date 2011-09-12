@@ -9,10 +9,10 @@ Square::Square(GLfloat xp, GLfloat yp, GLfloat w, GLfloat h)
 	this->data[1] = this->data[3] = yp;
 	this->data[2] = this->data[4] = xp + w;
 	this->data[5] = this->data[7] = yp + h;
-	cout<<"Square is: ("<<this->data[0]<<", "<<this->data[1]<<"), " << \
-									"("<<this->data[2]<<", "<<this->data[3]<<"), " <<\
-									"("<<this->data[4]<<", "<<this->data[5]<<"), " <<\
-									"("<<this->data[6]<<", "<<this->data[7]<<"), " << endl;
+//	cout<<"Square is: ("<<this->data[0]<<", "<<this->data[1]<<"), " << \
+//									"("<<this->data[2]<<", "<<this->data[3]<<"), " <<\
+//									"("<<this->data[4]<<", "<<this->data[5]<<"), " <<\
+//									"("<<this->data[6]<<", "<<this->data[7]<<"), " << endl;
 	return;
 }
 
