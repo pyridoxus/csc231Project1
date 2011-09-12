@@ -123,16 +123,26 @@ void Checkers::deleteSquares(void)
 void Checkers::setColor(int index)
 {
 	GLfloat r, g, b;
-//	if(!this->colorMode)
-//	{
-//		// Do black and white checkers
-//	}
-//	else
-//	{
+	int invert;
+	if(!this->colorMode)
+	{
+		// Do black and white checkers
+		// The basis for alternating the colors is (index % 2), but the alternating
+		// needs to be inverted between every row, but only if there are an even
+		// number of horizontal squares.
+		if(this->numHorizontal % 2 == 0) invert = index / this->numHorizontal;
+		else invert = 0;
+		if((index % 2) ^ (invert % 2)) r = g = b = 1.0;
+		else r = g = b = 0.0;
+//		cout<<"index="<<index<<" horz="<<this->numHorizontal<<" invert="<<invert;
+//		cout<<" color="<<r<<endl;
+	}
+	else
+	{
 		r = (rand() % 256) / 256.0;
 		g = (rand() % 256) / 256.0;
 		b = (rand() % 256) / 256.0;
-//	}
+	}
 //	cout<<"Storing color of: ("<<r<<", "<<g<<", "<<b<<")"<<endl;
 	this->squares[index]->setColor(r, g, b);
 	return;
